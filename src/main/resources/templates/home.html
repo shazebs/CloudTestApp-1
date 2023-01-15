@@ -8,6 +8,16 @@
 	</style>
 </head>
 <body>
-	<h1>Home Page.</h1>
+	<section class="">
+		<a th:href="@{/}">index</a>
+		<a th:href="@{/home}">home</a>
+		<a th:href="@{/post}">post</a>
+	</section>
+	<h1 onclick="clickme()">Home Page.</h1>
+	<script>
+		function clickme(){
+			console.log('hello');
+		}
+	</script>
 </body>
 </html>
