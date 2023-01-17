@@ -14,5 +14,8 @@
 		<a th:href="@{/post}">post</a>
 	</section>
 	<h1>Hello, WRLD!</h1>
+	<div th:each="post : ${posts}">
+		<p th:text="${post}">?</p>
+	</div>
 </body>
 </html>

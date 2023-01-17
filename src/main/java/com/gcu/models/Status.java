@@ -1,15 +1,11 @@
 package com.gcu.models;
 
-import java.util.List;
-
 public class Status 
 {
-	// properties
 	private int Id; 
 	private String Text;
 	private String Datetime;
 	
-	// constructors
 	public Status(){}
 	
 	/**

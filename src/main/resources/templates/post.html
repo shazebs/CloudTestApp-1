@@ -14,5 +14,9 @@
 		<a th:href="@{/post}">post</a>
 	</section>
 	<h1>Post a Status!</h1>
+	<form th:action="@{SubmitNewStatus}" th:object="${status}" method="post">
+		<input type="text" name="Text" placeholder="Type here" required />	
+		<button type="submit">Submit</button>
+	</form>
 </body>
 </html>
