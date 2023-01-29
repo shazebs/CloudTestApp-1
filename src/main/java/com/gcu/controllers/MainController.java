@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gcu.models.Status;
@@ -59,6 +61,7 @@ public class MainController
 	
 	@GetMapping("/home")
 	public String displayHome(Model model) {
+		Status newStatus = model.getAttribute("status") == null ? null : (Status)model.getAttribute("status"); 
 		return "home.html"; 
 	}
 	
@@ -68,9 +71,17 @@ public class MainController
 		return "post.html"; 
 	}
 	
-	@GetMapping("/SubmitNewStatus")
-	public String SubmitNewStatus(@Valid Status status, BindingResult bindingResult, Model model) {
-		System.out.println("Hello world");
-		return "index.html";
+	@PostMapping("/post")
+	public String SubmitStatus(@ModelAttribute Status status, Model model)
+	{
+		// logs 
+		System.out.printf("%d, %s, %s\n", status.getId(),
+										  status.getText(),
+										  status.getDatetime());
+		// arrange 
+		model.addAttribute("status", status);
+		
+		// return 
+		return "home.html";
 	}
 }

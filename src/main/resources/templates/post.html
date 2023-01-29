@@ -14,8 +14,15 @@
 		<a th:href="@{/post}">post</a>
 	</section>
 	<h1>Post a Status!</h1>
-	<form th:action="@{SubmitNewStatus}" th:object="${status}" method="post">
-		<input type="text" name="Text" placeholder="Type here" required />	
+	<!--
+		th:action="@{/}"	for what controller method to execute
+		th:object="${}"		for what object is binded to the form
+		th:field="*{}"		for field inputs for the object being submitted		
+	-->
+	<form action="#" th:action="@{/post}" th:object="${status}" method="post">
+		<input type="text" th:field="*{Id}" placeholder="Type id here" required style="max-width:30px;" />	
+		<input type="text" th:field="*{Text}" placeholder="Type status here" required />	
+		<input type="text" th:field="*{Datetime}" placeholder="Type datetime here" required />	
 		<button type="submit">Submit</button>
 	</form>
 </body>
