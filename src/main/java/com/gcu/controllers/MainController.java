@@ -100,7 +100,7 @@ public class MainController
 					"Message VARCHAR(1000) NOT NULL, " +
 					"PhotoUrl VARCHAR(1000) NULL, " + 
 					"Datetime VARCHAR(100) NOT NULL" +
-				");";
+					");";
 			database.execute(createTableSql); 
 			System.out.println("\nSql table statuses did not exist so application created one.");
 		}
@@ -119,6 +119,7 @@ public class MainController
 							record.getString("PhotoUrl"),
 							record.getString("Datetime")
 						));
+				System.out.println("\nRead " + statuses.size() + " from statuses table.");
 			}
 		}
 		catch (Exception e)
