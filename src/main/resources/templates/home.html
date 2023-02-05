@@ -32,8 +32,10 @@
 			<label>#</label><span th:text="${e.getId()}"></span><br/>
 			<label>Author</label> <span th:text="${e.getAuthor()}"></span><br/>
 			<label>Message</label> <span th:text="${e.getMessage()}"></span><br/>
-			<label>Photo</label> <span th:text="${e.getPhotoUrl()}"></span><br/>
-			<img class="PhotoPreview" th:src="${e.getPhotoUrl()}"/>
+			<div th:if='${e.getPhotoUrl() != ""}'>
+				<label>Photo</label> <span th:text="${e.getPhotoUrl()}"></span><br/>
+				<img class="PhotoPreview" th:src="${e.getPhotoUrl()}"/>
+			</div>
 			<label>Datetime</label> <span th:text="${e.getDatetime()}"></span><br/>
 		</div>
 	</div>
