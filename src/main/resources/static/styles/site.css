@@ -1,0 +1,38 @@
+body {
+	padding:5%;
+	padding-top:1%;
+}
+
+label {
+	margin-top:1%;
+	padding-right:1%;
+	font-weight:bolder;
+}
+
+.StatusBox {
+	margin-top:2%;
+	border-top:2px dashed dodgerblue;
+	padding-bottom:2%;
+}
+
+#StatusPhotoUrlInput {
+	width:100%;
+}
+
+.PhotoPreview {
+	width:300px;
+	max-width:100%;
+	height:auto;
+	display:block;
+	margin:1% 0%;
+}
+
+#StatusMessageInput {
+	width:100%;
+	padding:1%;
+	min-height:250px;
+}
+
+#SubmitStatusBtn {
+	margin-top:1%;
+}

@@ -3,8 +3,10 @@ package com.gcu.models;
 public class Status 
 {
 	private int Id; 
-	private String Text;
-	private String Datetime;
+	private String Author;
+	private String Message;
+	private String PhotoUrl; 
+	private String Datetime; 
 	
 	public Status(){}
 	
@@ -14,22 +16,28 @@ public class Status
 	 * @param text
 	 * @param datetime
 	 */
-	public Status(int id, String text, String datetime)
+	public Status(int id, String author, String message, String photoUrl, String datetime)
 	{
 		Id = id;
-		Text = text;
+		Author = author;
+		Message = message; 
+		PhotoUrl = photoUrl; 
 		Datetime = datetime;
 	}
 	
 	// getters
 	public int getId() { return Id; }	
-	public String getText() { return Text; }
+	public String getAuthor() { return Author; }
+	public String getMessage() { return Message; }
 	public String getDatetime() { return Datetime; }
+	public String getPhotoUrl() { return PhotoUrl; }
 	
 	// setters
 	public void setId(int id) { Id = id; }
-	public void setText(String text) { Text = text; }
+	public void setAuthor(String author) { Author = author; }
+	public void setMessage(String message) { Message = message; }
 	public void setDatetime(String datetime) { Datetime = datetime; }
+	public void setPhotoUrl(String photoUrl) { PhotoUrl = photoUrl; }
 	
 	// toString
 }

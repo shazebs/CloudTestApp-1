@@ -4,25 +4,48 @@
 	<title>iSTATUS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<link th:href="@{/styles/site.css}" rel="stylesheet"/>
 	<style>
 	</style>
 </head>
 <body>
-	<section class="">
-		<a th:href="@{/}">index</a>
-		<a th:href="@{/home}">home</a>
-		<a th:href="@{/post}">post</a>
-	</section>
-	<h1 onclick="clickme()">Home Page.</h1>
-	<script>
-		function clickme(){
-			console.log('hello');
-		}
-	</script>
-	<div th:if="${status} != null">
-		<p th:text="${status.getId()}"></p>
-		<p th:text="${status.getText()}"></p>
-		<p th:text="${status.getDatetime()}"></p>
+
+	<nav th:replace="~{layouts/common :: navbar}"></nav>
+	
+	<h1>Home Page.</h1>
+	
+	<!-- display latest status  
+	<div class="StatusBox" th:if="${status} != null">
+		<label>Author</label> <span th:text="${status.getAuthor()}"></span><br/>
+		<label>Message</label> <span th:text="${status.getMessage()}"></span><br/>
+		<section th:if='${status.getPhotoUrl() != ""}'>
+			<label>Photo</label> <span id="PhotoUrlSpan" th:text="${status.getPhotoUrl()}"><span><br/>
+		</section>
+		<label>Datetime</label> <span th:text="${status.getDatetime()}"></span><br/>
 	</div>
+	-->
+	
+	<div th:if="${statuses != null}">
+		<div class="StatusBox" th:each="e : ${statuses}">			
+			<label>#</label><span th:text="${e.getId()}"></span><br/>
+			<label>Author</label> <span th:text="${e.getAuthor()}"></span><br/>
+			<label>Message</label> <span th:text="${e.getMessage()}"></span><br/>
+			<label>Photo</label> <span th:text="${e.getPhotoUrl()}"></span><br/>
+			<img class="PhotoPreview" th:src="${e.getPhotoUrl()}"/>
+			<label>Datetime</label> <span th:text="${e.getDatetime()}"></span><br/>
+		</div>
+	</div>
+	
+	<script>	
+		var photoUrlSpan = document.getElementById('PhotoUrlSpan');
+		if (photoUrlSpan !== null) {	
+			var imgNode = document.createElement('img'); 
+			imgNode.classList.add('PhotoPreview');
+			imgNode.style.display = 'block';
+			imgNode.src = photoUrlSpan.textContent; 			
+			photoUrlSpan.append(imgNode);
+		}		
+	</script>
+		
 </body>
 </html>

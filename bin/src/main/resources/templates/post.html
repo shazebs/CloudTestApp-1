@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>iSTATUS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<style>
+	</style>
+</head>
+<body>
+	<section class="">
+		<a th:href="@{/}">index</a>
+		<a th:href="@{/home}">home</a>
+		<a th:href="@{/post}">post</a>
+	</section>
+	<h1>Post a Status!</h1>
+	<!--
+		th:action="@{/}"	for what controller method to execute
+		th:object="${}"		for what object is binded to the form
+		th:field="*{}"		for field inputs for the object being submitted		
+	-->
+	<form action="#" th:action="@{/post}" th:object="${status}" method="post">
+		<input type="text" th:field="*{Id}" placeholder="Type id here" required style="max-width:30px;" />	
+		<input type="text" th:field="*{Text}" placeholder="Type status here" required />	
+		<input type="text" th:field="*{Datetime}" placeholder="Type datetime here" required />	
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html>
