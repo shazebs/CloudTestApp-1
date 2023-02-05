@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:"http://www.thymeleaf.org">
-	<nav th:fragment="navbar">
+	<head>
+		<link th:href="@{/styles/site.css}" rel="stylesheet"/>
+	</head>
+	<nav id="navbar" th:fragment="navbar">
 		<section class="" style="text-align:center;">
 			<a th:href="@{/}">index</a>
 			<a th:href="@{/home}">home</a>

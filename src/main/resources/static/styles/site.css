@@ -9,6 +9,10 @@ label {
 	font-weight:bolder;
 }
 
+#navbar {
+	margin-bottom:1%;
+}
+
 .StatusBox {
 	margin-top:2%;
 	border-top:2px dashed dodgerblue;
