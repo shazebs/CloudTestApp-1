@@ -1,6 +1,8 @@
 body {
 	padding:5%;
 	padding-top:1%;
+	background-color:black;
+	color:white;
 }
 
 label {
