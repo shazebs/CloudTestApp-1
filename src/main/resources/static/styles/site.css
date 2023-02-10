@@ -31,6 +31,10 @@ label {
 	display:block;
 	margin:1% 0%;
 }
+	.PhotoPreview:hover {
+		width:100%;
+		cursor:pointer;
+	}
 
 #StatusMessageInput {
 	width:100%;
